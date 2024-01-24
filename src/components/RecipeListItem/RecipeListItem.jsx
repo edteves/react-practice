@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 import css from "../RecipeListItem/RecipeListItem.module.css";
+import { FaRegClock } from "react-icons/fa";
+import { FaChartPie } from "react-icons/fa";
 
 export const RecipeListItem = ({
 	name,
@@ -18,13 +20,13 @@ export const RecipeListItem = ({
 
 			<div className={css.recipeInfo}>
 				<div className={css.infoBlock}>
-					<span>Icon</span>
+					<FaRegClock className={css.clockIcon} />
 					<p>{time} minutes</p>
 				</div>
 			</div>
 
 			<div className={css.infoBlock}>
-				<span>Icon</span>
+				<FaChartPie className={css.pieIcon} />
 				<p>{servings} servings</p>
 			</div>
 

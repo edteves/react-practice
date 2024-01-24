@@ -47,6 +47,11 @@
 }
 
 .pieIcon {
-	background-color: orange;
-	fill: white;
+	background-color: transparent;
+	fill: #ffa500;
+}
+
+.clockIcon {
+	background-color: transparent;
+	fill: #ffa500;
 }
