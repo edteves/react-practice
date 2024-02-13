@@ -1,6 +1,5 @@
-import { RecipeList } from "./RecipeList/RecipeList";
-import recipes from "../data/recipes.json";
+import { UserMenu } from './UserMenu';
 
 export const App = () => {
-	return <RecipeList recipes={recipes} />;
+  return <UserMenu />;
 };
