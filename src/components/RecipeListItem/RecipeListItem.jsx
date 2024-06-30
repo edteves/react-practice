@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-
+import css from './RecipeListItem.module.css';
 export const RecipeListItem = ({
   name,
   time,
@@ -10,7 +10,7 @@ export const RecipeListItem = ({
 }) => {
   const isLoggedIn = false;
   return (
-    <li>
+    <li className={css.recipeListItem}>
       {isLoggedIn ? <p>User is Logged In</p> : <p>User is Logged Out</p>}
 
       <img src={image} alt="" width="240" />
