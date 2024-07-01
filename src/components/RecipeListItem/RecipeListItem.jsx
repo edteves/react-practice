@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import css from './RecipeListItem.module.css';
+
 export const RecipeListItem = ({
   name,
   time,
@@ -7,42 +8,34 @@ export const RecipeListItem = ({
   calories,
   image,
   difficulty,
+  isEasy,
 }) => {
-  const isLoggedIn = false;
+  const dynamicClassName = isEasy ? css.easy : css.notEasy;
+
   return (
     <li className={css.recipeListItem}>
-      {isLoggedIn ? <p>User is Logged In</p> : <p>User is Logged Out</p>}
-
       <img src={image} alt="" width="240" />
-
       <h2>{name}</h2>
 
-      <div>
-        <div>
-          <span>Icon</span>
+      <div className={css.recipeInfo}>
+        <div className={css.infoBlock}>
           <p>{time} minutes</p>
         </div>
-      </div>
 
-      <div>
-        <span>Icon</span>
-        <p>{servings}</p>
-      </div>
-
-      <div>
-        <span>Icon</span>
-        <p>{calories} calories</p>
-      </div>
-
-      <div>
-        <h3>Difficulty</h3>
-        <div>
-          <div>
-            <span>Easy</span>
-            <span>Medium</span>
-            <span>Hard</span>
-          </div>
+        <div className={css.infoBlock}>
+          <p>{servings} servings</p>
         </div>
+
+        <div className={css.infoBlock}>
+          <span>Icon</span>
+          <p>{calories} calories</p>
+        </div>
+
+        <div className={css.infoBlock}>
+          <p>Difficulty: {difficulty}</p>
+        </div>
+
+        <span className={dynamicClassName}></span>
       </div>
     </li>
   );
@@ -54,5 +47,6 @@ RecipeListItem.propTypes = {
   servings: PropTypes.number.isRequired,
   calories: PropTypes.number.isRequired,
   image: PropTypes.string.isRequired,
-  difficulty: PropTypes.oneOf(['easy', 'medium', 'hard']),
+  difficulty: PropTypes.oneOf(['easy', 'medium', 'hard']).isRequired,
+  isEasy: PropTypes.bool.isRequired,
 };
